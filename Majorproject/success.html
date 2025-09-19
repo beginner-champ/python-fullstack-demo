@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Booking Success - Wander Quest</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .success-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    .success-icon {
+      font-size: 60px;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/">🌍 Wander Quest</a>
+    </div>
+  </nav>
+
+  <!-- Success Message -->
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="success-card">
+      <div class="success-icon">✅</div>
+      <h2 class="fw-bold mt-3">Booking Confirmed!</h2>
+      <p class="text-muted">Thank you, <strong>{{ name }}</strong> 🎉</p>
+      
+      <div class="mt-4 text-start">
+        <h5 class="fw-bold">📌 Booking Details:</h5>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Package:</strong> {{ package }}</li>
+          <li class="list-group-item"><strong>Age:</strong> {{ age }} years ({{ 'Adult' if age >= 12 else 'Child' }})</li>
+          <li class="list-group-item"><strong>Total Price:</strong> ₹{{ price }}</li>
+        </ul>
+      </div>
+
+      <div class="mt-4">
+        <a href="/" class="btn btn-primary">🏠 Back to Home</a>
+        <a href="/admin" class="btn btn-secondary">📊 Admin Panel</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">© 2025 Wander Quest | Your Adventure Partner 🌍</p>
+  </footer>
+
+</body>
+</html>

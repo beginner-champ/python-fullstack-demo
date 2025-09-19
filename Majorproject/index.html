@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wander Quest - Travel Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="{{ url_for('static', filename='validate.js') }}"></script>
+  <style>
+    body {
+      background: #f9f9f9;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    }
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-radius: 15px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .form-section {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">🌍 Wander Quest</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="bg-light text-dark text-center py-5 shadow-sm">
+    <div class="container">
+      <h1 class="fw-bold">Explore the World with Wander Quest</h1>
+      <p class="lead">Unforgettable journeys, adventure-packed packages, and cultural experiences await you!</p>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <div class="container mt-5">
+    <h2 class="text-center fw-bold mb-4">✨ Popular Travel Packages</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Himalayan Trekking Expedition</h5>
+            <p>Destinations: Manali, Leh–Ladakh, Kedarkantha, Sandakphu</p>
+            <p><strong>Transport:</strong> Flight</p>
+            <p><strong>Price:</strong> ₹45,000 (Adult), ₹30,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Holi Festival Tour</h5>
+            <p>Destinations: Vrindavan, Mathura, Pushkar</p>
+            <p><strong>Transport:</strong> Train</p>
+            <p><strong>Price:</strong> ₹15,000 (Adult), ₹12,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Scuba Diving & Water Sports</h5>
+            <p>Destinations: Goa, Andaman, Gokarna, Maldives</p>
+            <p><strong>Transport:</strong> Bus</p>
+            <p><strong>Price:</strong> ₹150,000 (Adult), ₹75,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">White Water Rafting & Bungee Jumping</h5>
+            <p>Destinations: Rishikesh, Nepal</p>
+            <p><strong>Transport:</strong> Flight</p>
+            <p><strong>Price:</strong> ₹32,000 (Adult), ₹26,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Japan Pop-Culture & Anime Tour</h5>
+            <p>Destinations: Tokyo, Kyoto, Akihabara</p>
+            <p><strong>Transport:</strong> Flight</p>
+            <p><strong>Price:</strong> ₹200,000 (Adult), ₹100,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Northeast India Backpacking</h5>
+            <p>Destinations: Shillong, Tawang, Dawki, Cherrapunji</p>
+            <p><strong>Transport:</strong> Flight</p>
+            <p><strong>Price:</strong> ₹100,000 (Adult), ₹85,000 (Child)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Form -->
+  <div class="container mt-5">
+    <h2 class="text-center fw-bold mb-4">📝 Book Your Trip</h2>
+    <form class="form-section" action="/book" method="POST" onsubmit="return validateForm()">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="name" id="name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Age</label>
+        <input type="number" name="age" id="age" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Choose Package</label>
+        <select name="package" class="form-select" required>
+          <option value="Himalayan Trekking Expedition (Manali, Leh-Ladakh, Kedarkantha, Sandakphu)">
+            Himalayan Trekking Expedition
+          </option>
+          <option value="Holi Festival Tour (Vrindavan, Mathura, Pushkar)">
+            Holi Festival Tour
+          </option>
+          <option value="Scuba Diving & Water Sports (Goa, Andaman, Gokarna, Maldives)">
+            Scuba Diving & Water Sports
+          </option>
+          <option value="White Water Rafting & Bungee Jumping (Rishikesh, Nepal)">
+            White Water Rafting & Bungee Jumping
+          </option>
+          <option value="Japan Pop-Culture & Anime Tour (Tokyo, Kyoto, Akihabara)">
+            Japan Pop-Culture & Anime Tour
+          </option>
+          <option value="Northeast India Backpacking (Shillong, Tawang, Dawki, Cherrapunji)">
+            Northeast India Backpacking
+          </option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">🚀 Book Now</button>
+    </form>
+  </div>
+
+  <!-- Terms & Conditions -->
+  <div class="container mt-5 mb-5">
+    <h4 class="fw-bold">📌 Terms & Conditions</h4>
+    <ul>
+      <li>Children below 12 years get discounted price.</li>
+      <li>All bookings are non-refundable.</li>
+      <li>Valid ID proof required at boarding.</li>
+    </ul>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">© 2025 Wander Quest | Designed for Travel Enthusiasts 🌍</p>
+  </footer>
+
+</body>
+</html>
